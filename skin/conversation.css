@@ -803,8 +803,24 @@ ul.special-tags img {
   display: none;
 }
 
+.message:not(.signed-uncertain) .tag-signed-uncertain{
+  display: none;
+}
+
+.message:not(.signed-invalid) .tag-signed-invalid{
+  display: none;
+}
+
 .tag-signed, .tag-decrypted {
   background-color: #68AB57 !important;
+}
+
+.tag-signed-uncertain {
+  background-color: #BDB95C !important;
+}
+
+.tag-signed-invalid {
+  background-color: #FF0000 !important;
 }
 
 /* for drafts only */

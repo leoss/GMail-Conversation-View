@@ -116,6 +116,7 @@ function monkeyPatchWindow(window, aLater) {
       // overlays have been properly loaded and applied
       Cu.import("resource://conversations/modules/plugins/enigmail.js");
       Cu.import("resource://conversations/modules/plugins/lightning.js");
+      Cu.import("resource://conversations/modules/plugins/smime.js");
     } catch (e) {
       Log.error(e);
       dumpCallStack(e);

@@ -92,13 +92,14 @@ function addSignedLabel(aStatus, aDomNode,aMsgWindow,aMessage) {
   switch (aStatus) {
     case nsICMSMessageErrors.SUCCESS: //ok
      //insert "signed" label
-     addSignedNode("signed", aDomNode,aMsgWindow,aMessage);     
+     addSignedNode("signed", aDomNode,aMsgWindow,aMessage);
      break;
 
     case nsICMSMessageErrors.VERIFY_NOT_YET_ATTEMPTED: 
      //signature unknown
      //make special sign here
      addSignedNode("signed-uncertain", aDomNode,aMsgWindow,aMessage);
+     aDomNode.classList.remove("signed");
      [x.setAttribute("title", strings.get("unknownGood"))
       for each ([, x] in Iterator(aDomNode.querySelectorAll(".tag-signed-uncertain")))];
      break;
@@ -110,6 +111,7 @@ function addSignedLabel(aStatus, aDomNode,aMsgWindow,aMessage) {
       //signature not ok
       //make special sign here
       addSignedNode("signed-invalid", aDomNode,aMsgWindow,aMessage);
+      aDomNode.classList.remove("signed");
       [x.setAttribute("title", strings.get("invalidSignature"))
        for each ([, x] in Iterator(aDomNode.querySelectorAll(".tag-signed-invalid")))];
       break;
